@@ -9,29 +9,39 @@ public class HomeWork11 {
 
         int m = scanner.nextInt();
         int n = scanner.nextInt();
-        int[][] matrix = new int[m][n];
-        int[][] transportationMatrix = new int[n][m];
 
-        randomNumMatrix(matrix);
+        int[][] matrix = randomNumMatrix(new int[n][m]);
+        print(matrix);
+
         System.out.println("\nТранспортирование матрицы:\n");
-        transportation(matrix, transportationMatrix);
+
+        int[][] transportationMatrix = transportation(matrix);
+        print(transportationMatrix);
     }
 
-    public static void randomNumMatrix(int[][] matrix) {
+    public static int[][] randomNumMatrix(int[][] matrix) {
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
                 matrix[i][j] = (int) (Math.random() * 10);
-                System.out.print(matrix[i][j] + "    ");
             }
-            System.out.println();
         }
+        return matrix;
     }
 
-    public static void transportation(int[][] matrix, int[][] transportationMatrix) {
-        for (int i = 0; i < transportationMatrix.length; i++) {
+    public static int[][] transportation(int[][] matrix) {
+        int[][] transportationMatrix = new int[matrix[0].length][matrix.length];
+        for (int i = 0; i < matrix[0].length; i++) {
             for (int j = 0; j < matrix.length; j++) {
                 transportationMatrix[i][j] = matrix[j][i];
-                System.out.print(transportationMatrix[i][j] + "    ");
+            }
+        }
+        return transportationMatrix;
+    }
+
+    public static void print(int[][] matrix) {
+        for (int[] ints : matrix) {
+            for (int anInt : ints) {
+                System.out.print(anInt + "   ");
             }
             System.out.println();
         }
