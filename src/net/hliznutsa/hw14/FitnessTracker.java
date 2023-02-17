@@ -7,13 +7,13 @@ public class FitnessTracker {
     private final int birthDay;
     private final int birthMonth;
     private final int birthYear;
-    private String email;
-    private String phoneNum;
+    private final String email;
+    private final String phoneNum;
     private String surname;
     private double weight;
     private int pressure;
     private int stepsPerDay;
-    public int age;
+    private final int age;
 
     public FitnessTracker(String name, int birthDay, int birthMonth, int birthYear, String email, String phoneNum, String surname, double weight, int pressure, int stepsPerDay) {
         this.name = name;
