@@ -13,7 +13,7 @@ public class FitnessTracker {
     private double weight;
     private int pressure;
     private int stepsPerDay;
-    private final int age;
+    private int age;
 
     public FitnessTracker(String name, int birthDay, int birthMonth, int birthYear, String email, String phoneNum, String surname, double weight, int pressure, int stepsPerDay) {
         this.name = name;
