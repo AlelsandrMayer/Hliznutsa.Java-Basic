@@ -1,7 +1,5 @@
 package net.hliznutsa.hw15;
 
-import java.util.Objects;
-
 public class Point implements Cloneable {
     private int x;
     private int y;
@@ -27,27 +25,35 @@ public class Point implements Cloneable {
         return y;
     }
 
-    static double pointDistance(int firstX, int firstY, int secondX, int secondY) {
-        int summaX = firstX - secondX;
-        int summaY = firstY - secondY;
+    static double pointDistance(Point firstPoint, Point secondPoint) {
+        int summaX = firstPoint.getX() - secondPoint.getX();
+        int summaY = firstPoint.getY() - secondPoint.getY();
         int summaXy = (summaX * summaX) + (summaY * summaY);
         return Math.sqrt(summaXy);
     }
 
-    static double pointDistanceZero(int x, int y) {
-        return pointDistance(x, y, 0, 0);
+    public double pointDistanceOnePoint(Point point) {
+        return pointDistance(this, point);
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Point point)) return false;
-        return getX() == point.getX() && getY() == point.getY();
+        boolean result = false;
+        if (this == o) {
+            result = true;
+        } else if (o instanceof Point point) {
+            if (getX() == point.getX()) {
+                result = getY() == point.getY();
+            }
+        }
+        return result;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getX(), getY());
+        int result = getX();
+        result = 31 * result + getY();
+        return result;
     }
 
     @Override

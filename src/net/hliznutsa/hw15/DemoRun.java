@@ -1,7 +1,6 @@
 package net.hliznutsa.hw15;
 
 import static net.hliznutsa.hw15.Point.pointDistance;
-import static net.hliznutsa.hw15.Point.pointDistanceZero;
 
 public class DemoRun {
     public static void main(String[] args) throws CloneNotSupportedException {
@@ -15,9 +14,8 @@ public class DemoRun {
 
         System.out.println(firstPoint);
         System.out.println(secondPoint);
-        System.out.println("Расстояние между точками: " + pointDistance(firstPoint.getX(), firstPoint.getY(), secondPoint.getX(), secondPoint.getY()));
-        System.out.println("Расстояние от 0 к первой точке: " + pointDistanceZero(firstPoint.getX(), firstPoint.getY()));
-        System.out.println("Расстояние от 0 к второй точке : " + pointDistanceZero(secondPoint.getX(), secondPoint.getY()));
+        System.out.println("Расстояние к точке: " + firstPoint.pointDistanceOnePoint(secondPoint));
+        System.out.println("Расстояние между точками: " + pointDistance(firstPoint, secondPoint));
         System.out.println("Координаты точек равны: " + firstPoint.equals(secondPoint));
 
         Point cloneFirstPoint = firstPoint.clone();
