@@ -26,10 +26,15 @@ public class Point implements Cloneable {
     }
 
     static double pointDistance(Point firstPoint, Point secondPoint) {
-        int summaX = firstPoint.getX() - secondPoint.getX();
-        int summaY = firstPoint.getY() - secondPoint.getY();
-        int summaXy = (summaX * summaX) + (summaY * summaY);
-        return Math.sqrt(summaXy);
+        if (firstPoint == null || secondPoint == null) {
+            System.out.print("Указано меньше двух точек:  ---  ");
+            return 0;
+        } else {
+            int summaX = firstPoint.getX() - secondPoint.getX();
+            int summaY = firstPoint.getY() - secondPoint.getY();
+            int summaXy = (summaX * summaX) + (summaY * summaY);
+            return Math.sqrt(summaXy);
+        }
     }
 
     public double pointDistanceOnePoint(Point point) {
